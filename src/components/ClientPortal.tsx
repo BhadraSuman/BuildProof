@@ -394,8 +394,7 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
               <span className="text-[11px] font-bold text-brand-navy uppercase tracking-wider block mb-3">
                 Timestamped Geotagged Field Audits (Tap to zoom inspection)
               </span>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-                <div
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">                <div
                   onClick={() =>
                     setSelectedPhoto({
                       title: "Slab & Pier Rebar Spacing Audit",
@@ -405,12 +404,12 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
                       status: "pass",
                     })
                   }
-                  className="cursor-pointer border border-brand-border rounded-[6px] overflow-hidden bg-brand-bgLight hover:border-brand-navy transition-all group flex sm:block items-center"
+                  className="cursor-pointer border border-brand-border rounded-[6px] overflow-hidden bg-brand-bgLight hover:border-brand-navy transition-all group"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     alt="Rebar spacing"
-                    className="w-24 sm:w-full h-20 sm:h-28 object-cover group-hover:scale-103 transition-transform shrink-0"
+                    className="w-full h-36 sm:h-28 object-cover group-hover:scale-103 transition-transform"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuB63ANUmNygn0NMc1NMCvhd-e4RDvGN0XrLXJiUhuZWv-wec3DAtuI0-37Je6ehVRMNRxoIure8Jqgk4BEOGkP1UzSngVne7lRYZ3_oMPRWWHshti-Uo0KsF3U1XM0G5wUYGO7qxTyj69Vxb1I-ClOKnnIUCSJ209tVhYXgwqMhJxuL-6lDsAmR7BCfQaeb6gTwnSPpgcSeGtq8B_9qiZ-rZ-JXc4w0e7-ap7ihegaL"
                   />
                   <div className="p-2.5 text-[11px] space-y-0.5">
@@ -432,12 +431,12 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
                       status: "pass",
                     })
                   }
-                  className="cursor-pointer border border-brand-border rounded-[6px] overflow-hidden bg-brand-bgLight hover:border-brand-navy transition-all group flex sm:block items-center"
+                  className="cursor-pointer border border-brand-border rounded-[6px] overflow-hidden bg-brand-bgLight hover:border-brand-navy transition-all group"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     alt="Slump test"
-                    className="w-24 sm:w-full h-20 sm:h-28 object-cover group-hover:scale-103 transition-transform shrink-0"
+                    className="w-full h-36 sm:h-28 object-cover group-hover:scale-103 transition-transform"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRHq2BTTMz5x_5L8RwfyuK4kuhAL8mLOn0ouRcY6hVZGsDbNqd-lp-wPnJCgmlaZ7UQh_x1KreVcYtXu69XKd9lKKtEYSHMwPYOBfhOXO0aUkPsZS6EA2ZmaxeCwvGyqM820e20b48liTKMmc6JsE9cKdKb6NoOIjglIXexe5_R_klp8AUb7L49jR6M9z3r0q_wljY1XQb8GK1sXUG-f4x6HXG2YMiAVTxqBBojMYg"
                   />
                   <div className="p-2.5 text-[11px] space-y-0.5">
@@ -459,12 +458,12 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
                       status: "fail",
                     })
                   }
-                  className="cursor-pointer border border-brand-fail/40 rounded-[6px] overflow-hidden bg-brand-failBg/20 hover:border-brand-fail transition-all group flex sm:block items-center"
+                  className="cursor-pointer border border-brand-fail/40 rounded-[6px] overflow-hidden bg-brand-failBg/20 hover:border-brand-fail transition-all group"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     alt="Rejected material lot"
-                    className="w-24 sm:w-full h-20 sm:h-28 object-cover group-hover:scale-103 transition-transform shrink-0"
+                    className="w-full h-36 sm:h-28 object-cover group-hover:scale-103 transition-transform"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMWeaDsKB4T2whZcovVQUGfJ-jVA9IWNKpE7SvTc6hmv4geoA2gMLa51WqFePEqCl2gN5zjLoDCJf1s3r0FFw0_4Gevz7JvhHOcWhcy2iQxda0p353GWOZdn4bDppsGSF-zgirkJx0hij2QvbiRgrOFkHP0iQRtgnFj7P94SLwXNHrNpK96KtsBYkJH13-YKSOl83ecFVW2bqZaw99nlZnYaOWbuJwlwXvcGtzNAos"
                   />
                   <div className="p-2.5 text-[11px] space-y-0.5">

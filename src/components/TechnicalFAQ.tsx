@@ -41,7 +41,7 @@ export default function TechnicalFAQ() {
 
         <div className="max-w-4xl divide-y divide-brand-border border-y border-brand-border">
           {faqs.map((faq, idx) => (
-            <details key={idx} className="group py-4 sm:py-4.5">
+            <details key={idx} className="group py-4 sm:py-5">
               <summary className="flex items-center justify-between cursor-pointer list-none text-xs sm:text-[14px] font-bold text-brand-navy gap-4 select-none">
                 <span>{faq.q}</span>
                 <ChevronDown className="w-4 h-4 text-brand-muted group-open:rotate-180 transition-transform duration-200 shrink-0" />

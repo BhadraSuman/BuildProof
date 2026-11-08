@@ -18,7 +18,7 @@ export default function MetricsTestimonial() {
     <section className="py-12 sm:py-16 border-b border-brand-border bg-brand-bgLight">
       <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         {/* Metrics Strip */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pb-8 sm:pb-10 border-b border-brand-border text-center sm:text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pb-8 sm:pb-10 border-b border-brand-border text-center">
           {metrics.map((m) => (
             <div key={m.label}>
               <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-navy font-mono">

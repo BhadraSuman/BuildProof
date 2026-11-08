@@ -62,13 +62,13 @@ export default function ActionBanner({ onRequestAudit }: ActionBannerProps) {
             <div className="pt-3 border-t border-brand-borderDark space-y-1.5 text-xs text-slate-300">
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-brand-orange shrink-0" />
-                <a className="hover:text-white hover:underline truncate" href="mailto:desk@buildproof.in">
+                <a className="hover:text-white hover:underline break-all" href="mailto:desk@buildproof.in">
                   desk@buildproof.in
                 </a>
               </div>
-              <div className="flex items-center gap-2">
-                <Landmark className="w-3.5 h-3.5 text-brand-orange shrink-0" />
-                <a className="hover:text-white hover:underline truncate" href="mailto:govt@buildproof.in">
+              <div className="flex items-start gap-2">
+                <Landmark className="w-3.5 h-3.5 text-brand-orange shrink-0 mt-0.5" />
+                <a className="hover:text-white hover:underline break-all" href="mailto:govt@buildproof.in">
                   govt@buildproof.in (PWD &amp; Smart City)
                 </a>
               </div>

@@ -8,11 +8,11 @@ interface HeroProps {
 
 export default function Hero({ onRequestAudit }: HeroProps) {
   return (
-    <section className="min-h-[calc(100vh-4rem)] flex items-center py-10 lg:py-16 border-b border-brand-border bg-white">
-      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
+    <section className="min-h-[calc(100vh-4rem)] flex items-center py-12 lg:py-0 border-b border-brand-border bg-white">
+      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 py-12 lg:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-20 items-center">
           {/* Left Column (6 Cols on wide screens) */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-6 space-y-7">
             <div className="inline-flex flex-wrap items-center gap-2 px-3 py-1.5 bg-brand-bgLight border border-brand-border rounded-[4px] text-[11px] sm:text-xs font-semibold text-brand-navy">
               <span className="w-2 h-2 bg-brand-orange rounded-full animate-pulse"></span>
               <span>INDEPENDENT CIVIL QUALITY AUDITING</span>
@@ -22,12 +22,12 @@ export default function Hero({ onRequestAudit }: HeroProps) {
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-bold text-brand-navy leading-[1.1] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-[56px] lg:text-[52px] xl:text-[64px] font-bold text-brand-navy leading-[1.08] tracking-tight">
               Build with proof, <br className="hidden sm:inline" />
               not promises.
             </h1>
 
-            <p className="text-sm sm:text-base lg:text-[17px] text-brand-muted leading-relaxed max-w-xl">
+            <p className="text-sm sm:text-[16px] lg:text-[17px] text-brand-muted leading-relaxed max-w-xl">
               We sample construction materials on site, test them in ISO/IEC 17025 accredited labs, and deliver legally verifiable IS &amp; CPWD code reports for property owners, developers, and government infrastructure projects.
             </p>
 
@@ -88,7 +88,7 @@ export default function Hero({ onRequestAudit }: HeroProps) {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 alt="Site Engineer conducting reinforcement quality check"
-                className="w-full h-[320px] sm:h-[400px] lg:h-[480px] xl:h-[530px] object-cover grayscale-[10%]"
+                className="w-full h-[300px] sm:h-[420px] lg:h-[520px] xl:h-[580px] object-cover grayscale-[10%]"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDt0ptGujnMdOUzGX_y5V4SEyC034jRRtzd8LGQOjLEZHmOxy-hykCJl10lAo-9fQqWbkyWjoA8V19f7OmBQ5hlHJOqypXokX6mKBP9QKxRB-cVw3AH5cgdnVkGO4RzqELIBCu2xLXOjd7ceNsAkqZkT-7gHJMgtKFzAWmIonEdym3yKO-BKGWuUqC9URuJfONiluLao0Fh0rttyK1JGt7lYzOG4k9MyDDUGWC0T02"
               />
 

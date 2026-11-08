@@ -16,8 +16,8 @@ export default function Navbar({ onRequestAudit }: NavbarProps) {
     { label: "How It Works", href: "#how-it-works" },
     { label: "Client Portal", href: "#dashboard" },
     { label: "IS & CPWD Scope", href: "#standards" },
-    { label: "Governance & Govt QA", href: "#governance" },
-    { label: "Technical FAQ", href: "#faq" },
+    { label: "Governance", href: "#governance" },
+    { label: "FAQ", href: "#faq" },
   ];
 
   return (
@@ -38,7 +38,7 @@ export default function Navbar({ onRequestAudit }: NavbarProps) {
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-[13.5px] xl:text-[14px] font-medium text-brand-muted">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-7 text-[13px] xl:text-[14px] font-medium text-brand-muted">
             {navLinks.map((link) => (
               <a
                 key={link.href}

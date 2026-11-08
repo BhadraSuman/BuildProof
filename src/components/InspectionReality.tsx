@@ -6,50 +6,50 @@ export default function InspectionReality() {
       icon: TrendingDown,
       number: "01",
       title: "Material Substitution",
-      desc: "Grade 53 OPC cement quietly replaced with blended fly-ash PPC; uncertified local rebar delivered without mill certificates or carbon tracking.",
+      desc: "Grade 53 OPC cement quietly replaced with blended fly-ash PPC; uncertified local rebar delivered without authentic mill test certificates or carbon equivalent tracking.",
       impact: "20–35% reduction in 28-day tensile and load capacity",
     },
     {
       icon: Clock,
       number: "02",
       title: "Rushed Curing & Shuttering",
-      desc: "Formwork props removed well before mandatory 14–21 day curing intervals dictated by IS 456, causing micro-fissuring during tensile deficit.",
+      desc: "Formwork props removed well before mandatory 14–21 day curing intervals dictated by IS 456, causing internal micro-fissuring during tensile deficit.",
       impact: "Premature deflection, latent slab sagging, and seepage",
     },
     {
       icon: ShieldAlert,
       number: "03",
       title: "Delayed Defect Discovery",
-      desc: "Efflorescence, thermal cracks, and wall dampness surface 12–24 months into occupancy—long after the 5% retention sum has been released.",
+      desc: "Masonry efflorescence, thermal cracks, and wall dampness surface 12–24 months into occupancy—long after standard 5% contractor retention sums are disbursed.",
       impact: "Severe capital depreciation and expensive chemical retrofits",
     },
   ];
 
   return (
-    <section className="py-14 sm:py-18 md:py-20 border-b border-brand-border bg-white" id="problem">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+    <section className="py-14 sm:py-20 border-b border-brand-border bg-white" id="problem">
+      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
           {/* Section Header */}
-          <div className="lg:col-span-4 space-y-2">
+          <div className="lg:col-span-4 space-y-3">
             <span className="text-[11px] font-bold text-brand-orange uppercase tracking-wider block">
               01 / Critical Vulnerability
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-brand-navy tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-navy tracking-tight leading-tight">
               Structural compromises contractors rarely disclose.
             </h2>
-            <p className="text-xs sm:text-sm text-brand-muted mt-2 leading-relaxed">
-              Without third-party physical extraction and lab validation, property owners absorb hidden risks that only appear years after final handover.
+            <p className="text-xs sm:text-sm text-brand-muted leading-relaxed">
+              Without third-party physical extraction and lab validation, private owners and public project heads absorb hidden risks that reveal themselves years after final payment release.
             </p>
           </div>
 
           {/* Cards List */}
-          <div className="lg:col-span-8 space-y-4">
+          <div className="lg:col-span-8 space-y-3.5">
             {vulnerabilities.map((item) => {
               const Icon = item.icon;
               return (
                 <div
                   key={item.number}
-                  className="p-4 sm:p-5 rounded-[6px] border border-brand-border bg-brand-bgLight/40 hover:bg-white hover:border-brand-navy/30 transition-all flex flex-col sm:flex-row items-start gap-4"
+                  className="p-4 sm:p-5 rounded-[8px] border border-brand-border bg-brand-bgLight/40 hover:bg-white hover:border-brand-navy/30 transition-all flex flex-col sm:flex-row items-start gap-4"
                 >
                   <div className="flex items-center gap-3 sm:flex-col sm:items-start shrink-0">
                     <span className="font-mono text-xs font-bold text-brand-orange">

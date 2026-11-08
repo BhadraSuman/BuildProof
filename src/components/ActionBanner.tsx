@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone, Mail, Clock } from "lucide-react";
+import { Phone, Mail, Clock, Landmark } from "lucide-react";
 
 interface ActionBannerProps {
   onRequestAudit: () => void;
@@ -8,55 +8,70 @@ interface ActionBannerProps {
 
 export default function ActionBanner({ onRequestAudit }: ActionBannerProps) {
   return (
-    <section className="py-12 sm:py-16 bg-brand-navy text-white" id="audit">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-8 space-y-3">
-            <div className="inline-flex items-center gap-1.5 text-[11px] font-mono text-brand-orange">
-              <span className="w-1.5 h-1.5 bg-brand-orange rounded-full animate-pulse"></span>
-              PROTECT CAPITAL DISBURSEMENTS
+    <section className="py-14 sm:py-20 bg-brand-navy text-white" id="audit">
+      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="lg:col-span-8 space-y-3.5">
+            <div className="inline-flex items-center gap-2 text-[11px] font-mono text-brand-orange">
+              <span className="w-2 h-2 bg-brand-orange rounded-full animate-pulse"></span>
+              <span>PROTECT CAPITAL DISBURSEMENTS • PRIVATE &amp; GOVT INFRASTRUCTURE</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold text-white tracking-tight leading-tight">
               Know what is going into your building.
             </h2>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
-              Schedule an unannounced site inspection or consult with our civil engineering desk prior to your next foundation or slab pour.
+            <p className="text-xs sm:text-sm lg:text-base text-slate-300 leading-relaxed max-w-2xl">
+              Schedule an unannounced site inspection or consult with our senior civil engineering desk prior to your next foundation, slab pour, or road sub-base clearance.
             </p>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
               <button
                 type="button"
                 onClick={onRequestAudit}
-                className="cursor-pointer bg-brand-orange hover:bg-brand-orangeHover text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-[6px] transition-colors text-center active:scale-98 shadow-xs"
+                className="cursor-pointer bg-brand-orange hover:bg-brand-orangeHover text-white text-xs sm:text-sm font-semibold px-6 py-3 rounded-[6px] transition-colors text-center active:scale-98 shadow-sm"
               >
                 Request a Site Audit
               </button>
               <a
-                className="border border-white/20 hover:bg-white/10 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-[6px] transition-colors flex items-center justify-center gap-2 text-center"
+                className="border border-white/20 hover:bg-white/10 text-white text-xs sm:text-sm font-semibold px-5 py-3 rounded-[6px] transition-colors flex items-center justify-center gap-2 text-center"
                 href="tel:+919830012345"
               >
-                <Phone className="w-3.5 h-3.5" />
+                <Phone className="w-4 h-4" />
                 +91 98300 12345
               </a>
             </div>
-            <div className="flex items-center gap-1.5 text-[11px] text-slate-400 pt-1">
-              <Clock className="w-3 h-3" />
-              <span>Response within 2 business hours • Zero sales pressure</span>
+            <div className="flex flex-wrap items-center gap-4 text-[11px] text-slate-400 pt-1">
+              <div className="flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-brand-orange" />
+                <span>Response within 2 business hours</span>
+              </div>
+              <span>•</span>
+              <div className="flex items-center gap-1.5">
+                <Landmark className="w-3.5 h-3.5 text-brand-orange" />
+                <span>Govt &amp; PWD Empanelled Desk</span>
+              </div>
             </div>
           </div>
 
-          <div className="lg:col-span-4 bg-brand-navyDark border border-brand-borderDark p-4 sm:p-5 rounded-[6px] space-y-2">
+          <div className="lg:col-span-4 bg-brand-navyDark border border-brand-borderDark p-5 sm:p-6 rounded-[8px] space-y-2.5">
             <div className="text-[10px] font-mono font-bold text-slate-400 uppercase">
-              Civil QA Desk
+              Civil QA Audit Division
             </div>
-            <div className="text-sm sm:text-base font-bold text-white">Eastern India Regional Hub</div>
-            <div className="text-xs text-slate-300">
+            <div className="text-base sm:text-lg font-bold text-white">Eastern India Regional Hub</div>
+            <div className="text-xs text-slate-300 leading-relaxed">
               New Town, Action Area II, Kolkata, WB 700156
             </div>
-            <div className="pt-2 border-t border-brand-borderDark flex items-center gap-1.5 text-[11px] text-slate-300">
-              <Mail className="w-3 h-3 text-brand-orange" />
-              <a className="hover:text-white hover:underline" href="mailto:desk@buildproof.in">
-                desk@buildproof.in
-              </a>
+            <div className="pt-3 border-t border-brand-borderDark space-y-1.5 text-xs text-slate-300">
+              <div className="flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-brand-orange shrink-0" />
+                <a className="hover:text-white hover:underline truncate" href="mailto:desk@buildproof.in">
+                  desk@buildproof.in
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Landmark className="w-3.5 h-3.5 text-brand-orange shrink-0" />
+                <a className="hover:text-white hover:underline truncate" href="mailto:govt@buildproof.in">
+                  govt@buildproof.in (PWD &amp; Smart City)
+                </a>
+              </div>
             </div>
           </div>
         </div>

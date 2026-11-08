@@ -2,18 +2,18 @@ import { ShieldCheck } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-bgLight border-t border-brand-border text-brand-muted py-10 sm:py-12 text-xs sm:text-[13px]">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 pb-8 sm:pb-10 border-b border-brand-border">
+    <footer className="bg-brand-bgLight border-t border-brand-border text-brand-muted py-12 text-xs sm:text-[13px]">
+      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 pb-10 border-b border-brand-border">
           <div className="sm:col-span-2 space-y-3">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-brand-navy flex items-center justify-center rounded-[4px] text-white">
+            <div className="flex items-center gap-2.5">
+              <div className="w-7 h-7 bg-brand-navy flex items-center justify-center rounded-[5px] text-white">
                 <ShieldCheck className="w-4 h-4" />
               </div>
-              <span className="font-bold text-base sm:text-[16px] text-brand-navy">BuildProof</span>
+              <span className="font-bold text-base sm:text-[17px] text-brand-navy">BuildProof</span>
             </div>
             <p className="text-xs sm:text-[13px] text-brand-muted leading-relaxed max-w-sm">
-              Independent civil engineering verification, NABL-accredited materials testing, and digital quality auditing for construction projects.
+              Independent civil engineering verification, NABL-accredited materials testing, and digital quality auditing for private residential, commercial, and government infrastructure projects.
             </p>
           </div>
           <div>
@@ -23,7 +23,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a className="hover:text-brand-navy transition-colors" href="#standards">
-                  Concrete &amp; RMC (IS 456)
+                  Concrete &amp; RMC (IS 456 / CPWD)
                 </a>
               </li>
               <li>
@@ -33,7 +33,7 @@ export default function Footer() {
               </li>
               <li>
                 <a className="hover:text-brand-navy transition-colors" href="#standards">
-                  Cement Analysis (IS 12269)
+                  Cement &amp; Mortar (IS 12269)
                 </a>
               </li>
               <li>
@@ -43,14 +43,14 @@ export default function Footer() {
               </li>
               <li>
                 <a className="hover:text-brand-navy transition-colors" href="#standards">
-                  Soil Bearing (IS 6403)
+                  Road Sub-Base &amp; Pavements (MoRTH)
                 </a>
               </li>
             </ul>
           </div>
           <div>
             <h4 className="font-bold text-brand-navy text-[11px] sm:text-[12px] uppercase tracking-wider mb-3">
-              Platform
+              Platform &amp; Sectors
             </h4>
             <ul className="space-y-2">
               <li>
@@ -64,13 +64,13 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a className="hover:text-brand-navy transition-colors" href="#audit">
-                  Inspection Pricing
+                <a className="hover:text-brand-navy transition-colors" href="#segments">
+                  Government &amp; PWD Works
                 </a>
               </li>
               <li>
-                <a className="hover:text-brand-navy transition-colors" href="#dashboard">
-                  Sample Lab PDF Dossier
+                <a className="hover:text-brand-navy transition-colors" href="#segments">
+                  NRI &amp; Remote Property Owners
                 </a>
               </li>
             </ul>
@@ -82,7 +82,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a className="hover:text-brand-navy transition-colors" href="#governance">
-                  NABL Lab Directory
+                  NABL Laboratory Directory
                 </a>
               </li>
               <li>
@@ -92,7 +92,7 @@ export default function Footer() {
               </li>
               <li>
                 <a className="hover:text-brand-navy transition-colors" href="#governance">
-                  Dispute Documentation
+                  Vigilance Audit Documentation
                 </a>
               </li>
               <li>
@@ -108,7 +108,7 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center sm:justify-end items-center gap-3 text-brand-muted">
             <span>ISO/IEC 17025 Laboratory Auditing Standard</span>
             <span className="hidden sm:inline">•</span>
-            <span>BIS Code Verified</span>
+            <span>BIS, CPWD &amp; MoRTH Verified</span>
           </div>
         </div>
       </div>

@@ -15,6 +15,7 @@ export default function AuditRequestModal({ isOpen, onClose }: AuditRequestModal
     name: "",
     phone: "",
     email: "",
+    sector: "Individual Villa / Private Residence",
     city: "Kolkata (New Town, Salt Lake, South)",
     stage: "Upcoming Slab / Beam Casting",
     notes: "",
@@ -39,7 +40,7 @@ export default function AuditRequestModal({ isOpen, onClose }: AuditRequestModal
             </div>
             <div>
               <h3 className="font-bold text-sm sm:text-[15px] leading-tight">Request an Independent Site Audit</h3>
-              <p className="text-[10px] sm:text-[11px] text-slate-300">NABL Lab Testing &amp; IS-Code Physical Extraction</p>
+              <p className="text-[10px] sm:text-[11px] text-slate-300">NABL Lab Testing • Private &amp; Government Projects</p>
             </div>
           </div>
           <button
@@ -58,7 +59,7 @@ export default function AuditRequestModal({ isOpen, onClose }: AuditRequestModal
             </div>
             <h4 className="text-lg sm:text-xl font-bold text-brand-navy">Audit Request Logged</h4>
             <p className="text-xs sm:text-[14px] text-brand-muted leading-relaxed">
-              Thank you, <strong className="text-brand-navy">{formData.name || "Client"}</strong>. Our senior civil engineering desk has received your request for <strong>{formData.city}</strong> ({formData.stage}).
+              Thank you, <strong className="text-brand-navy">{formData.name || "Client"}</strong>. Our senior civil engineering desk has received your request for <strong>{formData.sector}</strong> in <strong>{formData.city}</strong> ({formData.stage}).
             </p>
             <div className="p-3 bg-brand-bgLight rounded text-xs text-brand-navy font-medium text-left space-y-1">
               <div>
@@ -84,12 +85,12 @@ export default function AuditRequestModal({ isOpen, onClose }: AuditRequestModal
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="block text-[11px] sm:text-[12px] font-bold text-brand-navy mb-1">
-                  Full Name *
+                  Full Name / Officer Designation *
                 </label>
                 <input
                   required
                   type="text"
-                  placeholder="e.g. Rahul Sen"
+                  placeholder="e.g. Rahul Sen / Er. P. Das"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full text-xs sm:text-[13px] px-3 py-2 border border-brand-border rounded-[4px] focus:outline-none focus:border-brand-navy transition-colors"
@@ -113,6 +114,22 @@ export default function AuditRequestModal({ isOpen, onClose }: AuditRequestModal
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="block text-[11px] sm:text-[12px] font-bold text-brand-navy mb-1">
+                  Project Sector *
+                </label>
+                <select
+                  value={formData.sector}
+                  onChange={(e) => setFormData({ ...formData, sector: e.target.value })}
+                  className="w-full text-xs sm:text-[13px] px-3 py-2 border border-brand-border rounded-[4px] focus:outline-none focus:border-brand-navy bg-white transition-colors"
+                >
+                  <option value="Individual Villa / Private Residence">Individual Villa / Residence</option>
+                  <option value="NRI Remote Property Build">NRI Remote Property Build</option>
+                  <option value="Boutique Developer / Commercial">Boutique / Developer Project</option>
+                  <option value="Government / State PWD Infrastructure">Government / PWD / Municipal Infrastructure</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-[11px] sm:text-[12px] font-bold text-brand-navy mb-1">
                   Site Metro / Location
                 </label>
                 <select
@@ -125,35 +142,35 @@ export default function AuditRequestModal({ isOpen, onClose }: AuditRequestModal
                   <option value="Delhi NCR">Delhi NCR</option>
                   <option value="Mumbai MMR">Mumbai MMR</option>
                   <option value="Hyderabad">Hyderabad</option>
-                  <option value="Other Metro / State">Other Location</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-[11px] sm:text-[12px] font-bold text-brand-navy mb-1">
-                  Upcoming Milestone
-                </label>
-                <select
-                  value={formData.stage}
-                  onChange={(e) => setFormData({ ...formData, stage: e.target.value })}
-                  className="w-full text-xs sm:text-[13px] px-3 py-2 border border-brand-border rounded-[4px] focus:outline-none focus:border-brand-navy bg-white transition-colors"
-                >
-                  <option value="Foundation & Soil Bearing">Foundation &amp; Soil Bearing</option>
-                  <option value="Upcoming Slab / Beam Casting">Upcoming Slab / Beam Casting</option>
-                  <option value="Rebar & Steel Verification">Rebar Batch Verification</option>
-                  <option value="Brickwork & Masonry Batch">Brickwork / Blockwork</option>
-                  <option value="Pre-Handover Full Audit">Pre-Handover Full Audit</option>
+                  <option value="Other Metro / State Infrastructure">Other Location / State Works</option>
                 </select>
               </div>
             </div>
 
             <div>
               <label className="block text-[11px] sm:text-[12px] font-bold text-brand-navy mb-1">
-                Project Notes or Suspected Deviations (Optional)
+                Upcoming Milestone / Testing Requirement
+              </label>
+              <select
+                value={formData.stage}
+                onChange={(e) => setFormData({ ...formData, stage: e.target.value })}
+                className="w-full text-xs sm:text-[13px] px-3 py-2 border border-brand-border rounded-[4px] focus:outline-none focus:border-brand-navy bg-white transition-colors"
+              >
+                <option value="Upcoming Slab / Beam Casting">Upcoming Slab / Beam / Deck Casting</option>
+                <option value="Foundation & Soil Bearing">Foundation, Piles &amp; SBC</option>
+                <option value="Rebar & Steel Verification">Rebar Batch Verification (IS 1786)</option>
+                <option value="Road Sub-Base & Bitumen Testing">Road Sub-Base, Aggregates &amp; Bitumen (MoRTH)</option>
+                <option value="Pre-Handover Full Audit">Pre-Handover Full Audit &amp; Vigilance File</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-[11px] sm:text-[12px] font-bold text-brand-navy mb-1">
+                Project Notes / Specific Inspection Scope (Optional)
               </label>
               <textarea
                 rows={2}
-                placeholder="e.g. Suspecting contractor is mixing local fly-ash PPC instead of OPC 53..."
+                placeholder="e.g. Require third-party NABL cube testing and core sampling for upcoming 400m deck slab..."
                 value={formData.notes}
                 onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                 className="w-full text-xs sm:text-[13px] px-3 py-2 border border-brand-border rounded-[4px] focus:outline-none focus:border-brand-navy resize-none transition-colors"
@@ -162,7 +179,7 @@ export default function AuditRequestModal({ isOpen, onClose }: AuditRequestModal
 
             <div className="bg-brand-bgLight p-3 rounded text-[11px] text-brand-muted flex items-start gap-2">
               <Info className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
-              <span>Our civil engineers sample unannounced directly on site. No advance notice is sent to contractors.</span>
+              <span>Our civil engineers sample unannounced directly on site. Complete chain of custody with GPS geotagging.</span>
             </div>
 
             <div className="pt-2 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-2 sm:gap-3 border-t border-brand-border">

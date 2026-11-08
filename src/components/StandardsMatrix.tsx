@@ -1,79 +1,79 @@
 export default function StandardsMatrix() {
   const standards = [
     {
-      group: "Concrete & RMC",
-      code: "IS 456 / IS 516",
-      tests: "7 & 28-day compressive crushing strength, slump workability, density.",
+      group: "Concrete & RMC (Slab & Pavements)",
+      code: "IS 456 / IS 516 & CPWD Cl. 5",
+      tests: "7 & 28-day compressive crushing strength, core extraction, slump cone workability, density.",
       turnaround: "7 & 28 Days",
     },
     {
-      group: "Structural Steel (TMT)",
-      code: "IS 1786 / IS 1608",
-      tests: "0.2% Proof yield stress, UTS/YS ratio, bend & re-bend ductility, elongation.",
+      group: "Structural Steel (TMT & Structural)",
+      code: "IS 1786 / IS 1608 & MoRTH Cl. 1000",
+      tests: "0.2% Proof yield stress, UTS/YS ratio, bend & re-bend ductility, total elongation percentage.",
       turnaround: "48 Hours",
     },
     {
-      group: "Cement & Binding",
-      code: "IS 12269 / IS 4031",
-      tests: "Blaine fineness, standard consistency, setting times, Le-Chatelier soundness.",
+      group: "Cement & Mineral Admixtures",
+      code: "IS 12269 / IS 4031 & CPWD Cl. 4",
+      tests: "Blaine fineness, standard consistency, initial & final setting times, Le-Chatelier soundness expansion.",
       turnaround: "72 Hours",
     },
     {
-      group: "Masonry (Bricks & AAC)",
-      code: "IS 1077 / IS 3495",
-      tests: "Compressive crushing strength, 24h cold water absorption, efflorescence classification.",
+      group: "Masonry (Clay Bricks & AAC Blocks)",
+      code: "IS 1077 / IS 3495 & CPWD Cl. 6",
+      tests: "Compressive crushing strength, 24-hour cold water absorption percentage, chemical efflorescence classification.",
       turnaround: "5 Days",
     },
     {
-      group: "Foundation Soil & Strata",
-      code: "IS 6403 / IS 2720",
-      tests: "Standard Penetration Test (SPT), Safe Bearing Capacity (SBC), direct shear limits.",
+      group: "Foundation Strata & Road Sub-Base",
+      code: "IS 6403 / IS 2720 & MoRTH Cl. 400",
+      tests: "Standard Penetration Test (SPT N-value), Safe Bearing Capacity (SBC), CBR, flakiness & aggregate impact.",
       turnaround: "4 Days",
     },
   ];
 
   return (
-    <section className="py-14 sm:py-18 md:py-20 border-b border-brand-border bg-brand-bgLight" id="standards">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-        <div className="max-w-2xl mb-8">
+    <section className="py-14 sm:py-20 border-b border-brand-border bg-brand-bgLight" id="standards">
+      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+        <div className="max-w-3xl mb-8">
           <span className="text-[11px] font-bold text-brand-orange uppercase tracking-wider block mb-1">
-            04 / Testing Scope
+            04 / Testing Scope &amp; Specifications
           </span>
-          <h2 className="text-2xl sm:text-3xl font-bold text-brand-navy tracking-tight leading-tight">
-            Bureau of Indian Standards (BIS) Matrix
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-navy tracking-tight leading-tight">
+            Bureau of Indian Standards (BIS) &amp; CPWD Scope
           </h2>
-          <p className="text-xs sm:text-sm text-brand-muted mt-1">
-            Every test is executed inside ISO/IEC 17025 accredited laboratories adhering to statutory civil codes.
+          <p className="text-xs sm:text-sm text-brand-muted mt-1.5">
+            Destructive and physical audits executed exclusively inside ISO/IEC 17025 accredited laboratories adhering to state and central statutory civil specifications.
           </p>
         </div>
 
         {/* Compact Table */}
         <div className="border border-brand-border rounded-[8px] bg-white overflow-hidden shadow-xs">
           <div className="overflow-x-auto scrollbar-thin">
-            <table className="w-full text-left border-collapse text-xs min-w-[620px]">
+            <table className="w-full text-left border-collapse text-xs min-w-[680px]">
               <thead>
                 <tr className="bg-brand-bgLight border-b border-brand-border text-[10px] font-semibold text-brand-muted uppercase tracking-wider">
-                  <th className="py-2.5 px-4">Material Group</th>
-                  <th className="py-2.5 px-3">BIS Code</th>
-                  <th className="py-2.5 px-4">Core Laboratory Tests</th>
-                  <th className="py-2.5 px-4 text-right">Turnaround</th>
+                  <th className="py-3 px-4 sm:px-5">Material Group</th>
+                  <th className="py-3 px-3 sm:px-4">Statutory Standard</th>
+                  <th className="py-3 px-4 sm:px-5">Core Laboratory Tests</th>
+                  <th className="py-3 px-4 sm:px-5 text-right">Turnaround</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-brand-border">
                 {standards.map((item) => (
                   <tr key={item.group} className="hover:bg-brand-bgLight/40 transition-colors">
-                    <td className="py-3 px-4 font-bold text-brand-navy whitespace-nowrap">
+                    <td className="py-3.5 px-4 sm:px-5 font-bold text-brand-navy whitespace-nowrap">
                       {item.group}
                     </td>
-                    <td className="py-3 px-3">
-                      <span className="font-mono text-[10px] bg-brand-bgLight text-brand-navy px-1.5 py-0.5 rounded border border-brand-border whitespace-nowrap">
+                    <td className="py-3.5 px-3 sm:px-4">
+                      <span className="font-mono text-[10.5px] bg-brand-bgLight text-brand-navy px-2 py-0.5 rounded border border-brand-border whitespace-nowrap font-medium">
                         {item.code}
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-brand-muted leading-relaxed">
+                    <td className="py-3.5 px-4 sm:px-5 text-brand-muted leading-relaxed">
                       {item.tests}
                     </td>
-                    <td className="py-3 px-4 text-right whitespace-nowrap font-medium text-brand-navy">
+                    <td className="py-3.5 px-4 sm:px-5 text-right whitespace-nowrap font-medium text-brand-navy">
                       {item.turnaround}
                     </td>
                   </tr>

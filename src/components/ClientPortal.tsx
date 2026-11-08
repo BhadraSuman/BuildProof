@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Download, AlertCircle, Check, ZoomIn, X, ChevronRight, FileSpreadsheet, Building2, Landmark } from "lucide-react";
+import { Download, AlertCircle, Check, ZoomIn, X, ChevronRight, FileSpreadsheet, Building2, Landmark, Camera } from "lucide-react";
 
 interface Specimen {
   material: string;
@@ -108,6 +108,7 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
     url: string;
     status: "pass" | "fail";
   } | null>(null);
+  const [showMobilePhotos, setShowMobilePhotos] = useState(false);
 
   const activeData = activeProject === "residential" ? sampleDataResidential : sampleDataGovt;
 
@@ -209,9 +210,29 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
             </div>
           </div>
 
-          {/* Minimalist Milestone Tracker */}
-          <div className="bg-brand-bgLight px-5 py-3 border-b border-brand-border overflow-x-auto scrollbar-thin">
-            <div className="flex items-center gap-2 text-xs min-w-[700px]">
+          {/* Milestone Tracker (Responsive: Progress bar on mobile, full steps on md+) */}
+          <div className="bg-brand-bgLight px-4 sm:px-5 py-3 border-b border-brand-border">
+            {/* Mobile View: No horizontal scrolling */}
+            <div className="md:hidden py-0.5 space-y-1.5">
+              <div className="flex items-center justify-between text-xs">
+                <span className="font-semibold text-brand-navy">
+                  Milestone <span className="text-brand-orange font-bold">4 of 6</span>: Deck Slab Casting
+                </span>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold text-brand-orange bg-brand-orange/10 px-2 py-0.5 rounded border border-brand-orange/20">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-ping" /> Auditing
+                </span>
+              </div>
+              <div className="w-full bg-brand-border/60 h-2 rounded-full overflow-hidden">
+                <div className="bg-brand-orange h-full rounded-full transition-all duration-300" style={{ width: "66%" }} />
+              </div>
+              <div className="flex items-center justify-between text-[11px] text-brand-muted">
+                <span>✓ Phases 1–3 Cleared</span>
+                <span>Next: Wearing Coat</span>
+              </div>
+            </div>
+
+            {/* Desktop / Tablet View */}
+            <div className="hidden md:flex items-center gap-2 text-xs overflow-x-auto scrollbar-thin">
               <div className="flex items-center gap-1.5 font-semibold text-brand-navy shrink-0">
                 <span className="w-4 h-4 rounded-full bg-brand-pass text-white flex items-center justify-center text-[9px] font-bold">✓</span>
                 1. Excavation &amp; SBC
@@ -320,8 +341,78 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
               </div>
             </div>
 
-            {/* Table */}
-            <div className="border border-brand-border rounded-[6px] overflow-x-auto scrollbar-thin">
+            {/* Mobile Specimen Cards (md:hidden) — No horizontal scrolling */}
+            <div className="md:hidden space-y-3">
+              {filteredData.map((row) => (
+                <div
+                  key={row.id}
+                  className={`p-3.5 rounded-[8px] border transition-all ${
+                    row.failedHighlight
+                      ? "bg-brand-failBg/40 border-brand-fail/30"
+                      : "bg-white border-brand-border"
+                  }`}
+                >
+                  <div className="flex items-start justify-between gap-2 mb-2 pb-2 border-b border-brand-border/60">
+                    <div>
+                      <div className={`font-bold text-sm ${row.failedHighlight ? "text-brand-fail" : "text-brand-navy"}`}>
+                        {row.material}
+                      </div>
+                      <div className="font-mono text-[11px] text-brand-muted mt-0.5">
+                        ID: {row.id} • {row.date}
+                      </div>
+                    </div>
+                    {row.status === "Passed" ? (
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold text-brand-pass bg-brand-passBg px-2 py-0.5 rounded border border-brand-pass/20 shrink-0">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" /> Passed
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold text-brand-fail bg-brand-failBg px-2 py-0.5 rounded border border-brand-fail/30 shrink-0">
+                        <AlertCircle className="w-2.5 h-2.5" /> FAILED
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 text-xs mb-3">
+                    <div>
+                      <span className="text-[10px] text-brand-muted uppercase block font-semibold">Test Scope</span>
+                      <span className="text-brand-navy font-medium text-[11.5px] leading-tight block">{row.testDesc}</span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-brand-muted uppercase block font-semibold">Measured Yield</span>
+                      <span className={`font-bold text-[11.5px] block ${row.failedHighlight ? "text-brand-fail" : "text-brand-navy"}`}>
+                        {row.measured}
+                      </span>
+                    </div>
+                    <div className="col-span-2">
+                      <span className="text-[10px] text-brand-muted uppercase block font-semibold">Specification</span>
+                      <span className="text-brand-muted text-[11px]">{row.standard}</span>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      onOpenDocModal(
+                        row.status === "Passed"
+                          ? `NABL Test Certificate: ${row.material} (${row.id})`
+                          : `Defect Notice: ${row.material} (${row.id})`,
+                        row.id
+                      )
+                    }
+                    className={`cursor-pointer w-full py-2 px-3 rounded-[6px] text-xs font-semibold text-center transition-colors active:scale-98 ${
+                      row.status === "Passed"
+                        ? "bg-brand-bgLight text-brand-navy hover:bg-brand-navy hover:text-white border border-brand-border"
+                        : "bg-brand-fail text-white hover:bg-red-700 shadow-xs"
+                    }`}
+                  >
+                    {row.status === "Passed" ? "View NABL Certificate PDF →" : "View Non-Conformance Notice →"}
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop / Tablet Table (hidden md:block) */}
+            <div className="hidden md:block border border-brand-border rounded-[6px] overflow-x-auto scrollbar-thin">
               <table className="w-full text-left border-collapse text-xs min-w-[660px]">
                 <thead>
                   <tr className="bg-brand-bgLight border-b border-brand-border text-[10px] font-semibold text-brand-muted uppercase tracking-wider">
@@ -390,12 +481,25 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
               </table>
             </div>
 
-            {/* Geotagged Field Strip */}
+            {/* Geotagged Field Strip (Images optional/hidden on mobile) */}
             <div className="mt-5 pt-4 border-t border-brand-border">
-              <span className="text-[11px] font-bold text-brand-navy uppercase tracking-wider block mb-3">
-                Timestamped Geotagged Field Audits (Tap to zoom inspection)
-              </span>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">                <div
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-[11px] font-bold text-brand-navy uppercase tracking-wider block">
+                  Timestamped Geotagged Field Audits
+                </span>
+                {/* Mobile Toggle Button */}
+                <button
+                  type="button"
+                  onClick={() => setShowMobilePhotos(!showMobilePhotos)}
+                  className="sm:hidden inline-flex items-center gap-1 text-[11px] font-bold text-brand-orange hover:underline cursor-pointer"
+                >
+                  <Camera className="w-3.5 h-3.5" />
+                  <span>{showMobilePhotos ? "Hide Photos" : "View 3 Photos"}</span>
+                </button>
+              </div>
+
+              {/* Photos Grid: always visible on sm+, toggled on mobile */}
+              <div className={`${showMobilePhotos ? "grid" : "hidden sm:grid"} grid-cols-1 sm:grid-cols-3 gap-3.5`}>                <div
                   onClick={() =>
                     setSelectedPhoto({
                       title: "Slab & Pier Rebar Spacing Audit",

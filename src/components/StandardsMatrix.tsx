@@ -48,8 +48,35 @@ export default function StandardsMatrix() {
           </p>
         </div>
 
-        {/* Compact Table */}
-        <div className="border border-brand-border/80 rounded-[12px] bg-white/90 backdrop-blur-md overflow-hidden shadow-sm">
+        {/* Mobile View: Stacked Cards (md:hidden) — No horizontal scrolling required */}
+        <div className="md:hidden space-y-3">
+          {standards.map((item) => (
+            <div
+              key={item.group}
+              className="p-4 rounded-[10px] border border-brand-border/80 bg-white/90 backdrop-blur-md shadow-xs space-y-2"
+            >
+              <div className="flex items-start justify-between gap-2">
+                <h3 className="font-bold text-sm text-brand-navy leading-snug">
+                  {item.group}
+                </h3>
+                <span className="font-mono text-[10px] bg-brand-navy/5 text-brand-navy font-semibold px-2 py-0.5 rounded border border-brand-border shrink-0 whitespace-nowrap">
+                  ⏱ {item.turnaround}
+                </span>
+              </div>
+              <div>
+                <span className="font-mono text-[10.5px] bg-brand-bgLight text-brand-navy px-2 py-0.5 rounded border border-brand-border font-medium inline-block">
+                  {item.code}
+                </span>
+              </div>
+              <p className="text-xs text-brand-muted leading-relaxed">
+                {item.tests}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop / Tablet View: Table (hidden md:block) */}
+        <div className="hidden md:block border border-brand-border/80 rounded-[12px] bg-white/90 backdrop-blur-md overflow-hidden shadow-sm">
           <div className="overflow-x-auto scrollbar-thin">
             <table className="w-full text-left border-collapse text-xs min-w-[680px]">
               <thead>

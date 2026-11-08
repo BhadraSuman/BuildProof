@@ -34,15 +34,16 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-14 sm:py-20 border-b border-brand-border bg-brand-bgLight" id="how-it-works">
-      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+    <section className="py-16 sm:py-24 border-b border-brand-border bg-[#f8fafc]" id="how-it-works">
+      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
           {/* Header */}
           <div className="lg:col-span-4 space-y-3">
-            <span className="text-[11px] font-bold text-brand-orange uppercase tracking-wider block">
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-brand-orange uppercase tracking-wider bg-brand-orange/8 border border-brand-orange/20 px-3 py-1 rounded-full mb-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
               02 / Execution Workflow
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-navy tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-[38px] font-bold text-brand-navy tracking-tight leading-tight">
               Independent civil oversight from excavation to handover.
             </h2>
             <p className="text-xs sm:text-sm text-brand-muted leading-relaxed">
@@ -58,10 +59,10 @@ export default function HowItWorks() {
                 return (
                   <div
                     key={step.phase}
-                    className={`p-5 rounded-[8px] border bg-white flex flex-col justify-between transition-all ${
+                    className={`p-5 rounded-[10px] border bg-white flex flex-col justify-between transition-all shadow-sm ${
                       step.isHighlight
-                        ? "border-brand-orange/40 ring-1 ring-brand-orange/20 shadow-xs"
-                        : "border-brand-border hover:border-brand-navy/30"
+                        ? "border-brand-orange/50 ring-1 ring-brand-orange/20 shadow-md shadow-brand-orange/10"
+                        : "border-brand-border hover:border-brand-navy/30 hover:shadow-md"
                     }`}
                   >
                     <div>

@@ -8,8 +8,11 @@ interface ActionBannerProps {
 
 export default function ActionBanner({ onRequestAudit }: ActionBannerProps) {
   return (
-    <section className="py-14 sm:py-20 bg-brand-navy text-white" id="audit">
-      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+    <section className="py-16 sm:py-24 bg-gradient-to-br from-brand-navy via-brand-navy to-brand-navyDark text-white relative overflow-hidden" id="audit">
+      {/* Subtle decorative circles */}
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-brand-orange/5 blur-3xl -z-0 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-white/3 blur-3xl -z-0 pointer-events-none" />
+      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-8 space-y-3.5">
             <div className="inline-flex items-center gap-2 text-[11px] font-mono text-brand-orange">

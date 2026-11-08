@@ -118,14 +118,15 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
   });
 
   return (
-    <section className="py-14 sm:py-20 border-b border-brand-border bg-white" id="dashboard">
-      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+    <section className="py-16 sm:py-24 border-b border-brand-border bg-white" id="dashboard">
+      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-24">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-4">
           <div>
-            <span className="text-[11px] font-bold text-brand-orange uppercase tracking-wider block mb-1">
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-brand-orange uppercase tracking-wider bg-brand-orange/8 border border-brand-orange/20 px-3 py-1 rounded-full mb-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
               03 / Unalterable Software Portal
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-navy tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-[38px] font-bold text-brand-navy tracking-tight leading-tight">
               Civil QA Client Dashboard
             </h2>
             <p className="text-xs sm:text-sm text-brand-muted mt-1 max-w-xl">
@@ -187,7 +188,7 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
         </div>
 
         {/* DASHBOARD CONTAINER */}
-        <div className="border border-brand-border rounded-[8px] bg-white overflow-hidden shadow-xs">
+        <div className="border border-brand-border rounded-[12px] bg-white overflow-hidden shadow-lg shadow-brand-navy/5">
           {/* Topbar */}
           <div className="bg-brand-navy text-white px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 border-b border-brand-borderDark">
             <div className="flex flex-wrap items-center gap-2.5">

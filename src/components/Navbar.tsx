@@ -21,8 +21,8 @@ export default function Navbar({ onRequestAudit }: NavbarProps) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full h-16 bg-white/95 backdrop-blur-md border-b border-brand-border">
-      <div className="max-w-[1440px] 2xl:max-w-[1600px] h-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 flex items-center justify-between">
+    <header className="sticky top-0 z-50 w-full h-16 bg-white/95 backdrop-blur-md border-b border-brand-border shadow-sm">
+      <div className="max-w-[1440px] 2xl:max-w-[1600px] h-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 flex items-center justify-between">
         <div className="flex items-center gap-8 xl:gap-12">
           <Link href="/" className="flex items-center gap-2.5 shrink-0">
             <div className="w-8 h-8 bg-brand-navy flex items-center justify-center rounded-[6px] text-white shadow-xs">

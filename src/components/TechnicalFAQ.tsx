@@ -25,28 +25,29 @@ export default function TechnicalFAQ() {
   ];
 
   return (
-    <section className="py-14 sm:py-20 border-b border-brand-border bg-white" id="faq">
-      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
-        <div className="max-w-3xl mb-8">
-          <span className="text-[11px] font-bold text-brand-orange uppercase tracking-wider block mb-1">
+    <section className="py-16 sm:py-24 border-b border-brand-border bg-[#f8fafc]" id="faq">
+      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-24">
+        <div className="max-w-2xl mx-auto text-center mb-10">
+          <span className="inline-flex items-center gap-2 text-[11px] font-bold text-brand-orange uppercase tracking-wider mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
             07 / Clarifications
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-navy tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-[38px] font-bold text-brand-navy tracking-tight leading-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-xs sm:text-sm text-brand-muted mt-1.5">
+          <p className="text-sm text-brand-muted mt-3 leading-relaxed">
             Operational jurisdiction, government procurement, lab accreditations, and milestone gating.
           </p>
         </div>
 
-        <div className="max-w-4xl divide-y divide-brand-border border-y border-brand-border">
+        <div className="max-w-3xl mx-auto divide-y divide-brand-border border border-brand-border rounded-[10px] overflow-hidden bg-white shadow-sm">
           {faqs.map((faq, idx) => (
-            <details key={idx} className="group py-4 sm:py-5">
-              <summary className="flex items-center justify-between cursor-pointer list-none text-xs sm:text-[14px] font-bold text-brand-navy gap-4 select-none">
+            <details key={idx} className="group px-5 py-4 sm:py-5 hover:bg-brand-bgLight/50 transition-colors">
+              <summary className="flex items-center justify-between cursor-pointer list-none text-sm sm:text-[14.5px] font-semibold text-brand-navy gap-4 select-none">
                 <span>{faq.q}</span>
                 <ChevronDown className="w-4 h-4 text-brand-muted group-open:rotate-180 transition-transform duration-200 shrink-0" />
               </summary>
-              <div className="mt-2.5 text-xs sm:text-[13px] text-brand-muted leading-relaxed max-w-3xl">
+              <div className="mt-3 text-[13px] sm:text-sm text-brand-muted leading-relaxed max-w-2xl">
                 {faq.a}
               </div>
             </details>

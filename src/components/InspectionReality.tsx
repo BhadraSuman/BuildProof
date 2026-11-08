@@ -26,15 +26,16 @@ export default function InspectionReality() {
   ];
 
   return (
-    <section className="py-14 sm:py-20 border-b border-brand-border bg-white" id="problem">
-      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+    <section className="py-16 sm:py-24 border-b border-brand-border bg-white" id="problem">
+      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
           {/* Section Header */}
           <div className="lg:col-span-4 space-y-3">
-            <span className="text-[11px] font-bold text-brand-orange uppercase tracking-wider block">
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-brand-orange uppercase tracking-wider bg-brand-orange/8 border border-brand-orange/20 px-3 py-1 rounded-full mb-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
               01 / Critical Vulnerability
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-navy tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-[38px] font-bold text-brand-navy tracking-tight leading-tight">
               Structural compromises contractors rarely disclose.
             </h2>
             <p className="text-xs sm:text-sm text-brand-muted leading-relaxed">
@@ -49,7 +50,7 @@ export default function InspectionReality() {
               return (
                 <div
                   key={item.number}
-                  className="p-4 sm:p-5 rounded-[8px] border border-brand-border bg-brand-bgLight/40 hover:bg-white hover:border-brand-navy/30 transition-all flex flex-col sm:flex-row items-start gap-4"
+                  className="p-5 sm:p-6 rounded-[10px] border border-brand-border bg-white hover:border-brand-navy/30 hover:shadow-md transition-all flex flex-col sm:flex-row items-start gap-4 shadow-sm"
                 >
                   <div className="flex items-center gap-3 sm:flex-col sm:items-start shrink-0">
                     <span className="font-mono text-xs font-bold text-brand-orange">

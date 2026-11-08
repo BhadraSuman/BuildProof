@@ -59,10 +59,10 @@ export default function HowItWorks() {
                 return (
                   <div
                     key={step.phase}
-                    className={`p-5 rounded-[10px] border flex flex-col justify-between transition-all backdrop-blur-sm shadow-xs ${
+                    className={`p-5 rounded-[12px] border flex flex-col justify-between transition-all duration-200 backdrop-blur-sm shadow-xs hover:-translate-y-0.5 ${
                       step.isHighlight
-                        ? "border-brand-orange/40 bg-white/95 ring-1 ring-brand-orange/20 shadow-md shadow-brand-orange/10"
-                        : "border-brand-border/80 bg-white/80 hover:bg-white hover:border-brand-navy/30 hover:shadow-md"
+                        ? "border-brand-orange/40 bg-white/95 ring-1 ring-brand-orange/20 shadow-md shadow-brand-orange/10 hover:shadow-lg"
+                        : "border-brand-border/80 bg-white/80 hover:bg-white hover:border-brand-navy/30 hover:shadow-lg"
                     }`}
                   >
                     <div>

@@ -56,7 +56,7 @@ export default function Governance() {
               return (
                 <div
                   key={card.index}
-                  className="p-5 rounded-[10px] border border-brand-border/80 bg-white/80 backdrop-blur-sm hover:bg-white hover:border-brand-navy/30 hover:shadow-md transition-all space-y-2.5 shadow-xs"
+                  className="p-5 rounded-[12px] border border-brand-border/80 bg-white/80 backdrop-blur-sm hover:bg-white hover:border-brand-navy/30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 space-y-2.5 shadow-xs"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono font-bold text-brand-orange uppercase">

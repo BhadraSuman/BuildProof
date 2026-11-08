@@ -57,6 +57,17 @@ export default function Hero({ onRequestAudit }: HeroProps) {
               </a>
             </div>
 
+            {/* Modern Ecosystem Indicator */}
+            <div className="flex flex-wrap items-center gap-3 pt-0.5 text-xs text-brand-muted">
+              <span className="inline-flex items-center gap-1.5 font-semibold text-brand-navy">
+                <span className="w-2 h-2 rounded-full bg-brand-pass animate-pulse" /> Web &amp; Mobile App Access
+              </span>
+              <span className="text-brand-border">•</span>
+              <span>Real-Time Snag Push Alerts</span>
+              <span className="text-brand-border">•</span>
+              <span>ISO 17025 Provenance</span>
+            </div>
+
             {/* Metadata row */}
             <div className="pt-5 border-t border-brand-border grid grid-cols-1 sm:grid-cols-3 gap-5">
               {[

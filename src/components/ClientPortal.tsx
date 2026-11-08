@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Download, AlertCircle, Check, ZoomIn, X, ChevronRight, FileSpreadsheet, Building2, Landmark, Camera } from "lucide-react";
+import { Download, AlertCircle, Check, ChevronRight, FileSpreadsheet, Building2, Landmark, Smartphone, Laptop, BellRing } from "lucide-react";
 
 interface Specimen {
   material: string;
@@ -101,14 +101,6 @@ interface ClientPortalProps {
 export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
   const [activeProject, setActiveProject] = useState<"residential" | "govt">("residential");
   const [filter, setFilter] = useState<"all" | "passed" | "failed">("all");
-  const [selectedPhoto, setSelectedPhoto] = useState<{
-    title: string;
-    geo: string;
-    note: string;
-    url: string;
-    status: "pass" | "fail";
-  } | null>(null);
-  const [showMobilePhotos, setShowMobilePhotos] = useState(false);
 
   const activeData = activeProject === "residential" ? sampleDataResidential : sampleDataGovt;
 
@@ -119,9 +111,12 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
   });
 
   return (
-    <section className="py-16 sm:py-24 border-b border-brand-border bg-white" id="dashboard">
-      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-24">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-4">
+    <section className="py-16 sm:py-24 border-b border-brand-border bg-white relative overflow-hidden" id="dashboard">
+      {/* Modern subtle ambient glow behind dashboard */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-brand-orange/5 via-blue-50/50 to-brand-navy/5 blur-3xl rounded-full pointer-events-none -z-0" />
+
+      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 relative z-10">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <div>
             <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-brand-orange uppercase tracking-wider bg-brand-orange/8 border border-brand-orange/20 px-3 py-1 rounded-full mb-2">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
@@ -130,14 +125,14 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
             <h2 className="text-2xl sm:text-3xl md:text-[38px] font-bold text-brand-navy tracking-tight leading-tight">
               Civil QA Client Dashboard
             </h2>
-            <p className="text-xs sm:text-sm text-brand-muted mt-1 max-w-xl">
+            <p className="text-xs sm:text-sm text-brand-muted mt-1.5 max-w-xl">
               Inspect live engineering records, batch certificates, and defect notices across private and public infrastructure projects.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2.5">
             {/* Project Switcher */}
-            <div className="inline-flex rounded-[8px] border border-brand-border/80 bg-brand-bgLight/80 backdrop-blur-sm p-1 text-xs font-semibold">
+            <div className="inline-flex rounded-[8px] border border-brand-border/80 bg-brand-bgLight/80 backdrop-blur-sm p-1 text-xs font-semibold shadow-xs">
               <button
                 type="button"
                 onClick={() => {
@@ -180,7 +175,7 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
                   activeProject === "residential" ? "BP-2025-084-ALL" : "BP-PWD-2025-019"
                 )
               }
-              className="cursor-pointer inline-flex items-center gap-1.5 bg-brand-navy hover:bg-brand-navyDark text-white text-xs font-semibold px-3 py-2 rounded-[5px] transition-colors shadow-2xs"
+              className="cursor-pointer inline-flex items-center gap-1.5 bg-brand-navy hover:bg-brand-navyDark text-white text-xs font-semibold px-3.5 py-2 rounded-[6px] transition-all shadow-xs active:scale-98"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Export Dossier (PDF)</span>
@@ -189,7 +184,7 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
         </div>
 
         {/* DASHBOARD CONTAINER */}
-        <div className="border border-brand-border rounded-[12px] bg-white overflow-hidden shadow-lg shadow-brand-navy/5">
+        <div className="border border-brand-border/90 rounded-[14px] bg-white overflow-hidden shadow-xl shadow-brand-navy/5 backdrop-blur-sm">
           {/* Topbar */}
           <div className="bg-brand-navy text-white px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 border-b border-brand-borderDark">
             <div className="flex flex-wrap items-center gap-2.5">
@@ -199,19 +194,19 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
               <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded font-mono text-slate-300">
                 {activeProject === "residential" ? "BP-2025-084" : "GOVT-WB-PWD-09"}
               </span>
-              <span className="text-[10px] bg-brand-pass text-white font-semibold px-2 py-0.5 rounded">
-                Active Audit
+              <span className="text-[10px] bg-brand-pass text-white font-semibold px-2 py-0.5 rounded flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" /> Active Audit
               </span>
             </div>
-            <div className="text-xs text-slate-300">
-              {activeProject === "residential"
-                ? "New Town Zone 1, Kolkata • Apex Buildcon Pvt Ltd"
-                : "KMDA Sector V Link • National Highway & PWD Division"}
+            <div className="text-xs text-slate-300 flex items-center gap-2">
+              <span>{activeProject === "residential" ? "New Town Zone 1, Kolkata" : "KMDA Sector V Link"}</span>
+              <span className="hidden sm:inline">•</span>
+              <span className="hidden sm:inline font-mono text-[11px] text-brand-orange bg-white/10 px-1.5 py-0.5 rounded">Live Cloud Sync</span>
             </div>
           </div>
 
           {/* Milestone Tracker (Responsive: Progress bar on mobile, full steps on md+) */}
-          <div className="bg-brand-bgLight px-4 sm:px-5 py-3 border-b border-brand-border">
+          <div className="bg-[#f8fafc] px-4 sm:px-5 py-3 border-b border-brand-border">
             {/* Mobile View: No horizontal scrolling */}
             <div className="md:hidden py-0.5 space-y-1.5">
               <div className="flex items-center justify-between text-xs">
@@ -222,7 +217,7 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-ping" /> Auditing
                 </span>
               </div>
-              <div className="w-full bg-brand-border/60 h-2 rounded-full overflow-hidden">
+              <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
                 <div className="bg-brand-orange h-full rounded-full transition-all duration-300" style={{ width: "66%" }} />
               </div>
               <div className="flex items-center justify-between text-[11px] text-brand-muted">
@@ -266,7 +261,7 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
           </div>
 
           {/* CRITICAL SNAG ALERT CALLOUT */}
-          <div className="mx-5 my-4 p-3.5 bg-brand-failBg border-l-4 border-brand-fail rounded-[4px] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="mx-4 sm:mx-5 my-4 p-3.5 bg-brand-failBg border-l-4 border-brand-fail rounded-[6px] flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
             <div className="flex items-start gap-2.5">
               <AlertCircle className="w-5 h-5 text-brand-fail shrink-0 mt-0.5" />
               <div className="text-xs">
@@ -299,8 +294,8 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
           </div>
 
           {/* DATA TABLE SECTION */}
-          <div className="px-5 pb-5">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+          <div className="px-4 sm:px-5 pb-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3.5 gap-2">
               <div className="flex items-center gap-2">
                 <FileSpreadsheet className="w-4 h-4 text-brand-navy" />
                 <span className="text-xs font-bold text-brand-navy uppercase tracking-wider">
@@ -310,11 +305,11 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
               </div>
 
               {/* Filter Tabs */}
-              <div className="inline-flex self-start sm:self-auto rounded border border-brand-border bg-brand-bgLight p-0.5 text-[10px] font-semibold">
+              <div className="inline-flex self-start sm:self-auto rounded-[6px] border border-brand-border bg-brand-bgLight p-0.5 text-[10px] font-semibold">
                 <button
                   type="button"
                   onClick={() => setFilter("all")}
-                  className={`px-2.5 py-1 rounded transition-colors ${
+                  className={`cursor-pointer px-2.5 py-1 rounded transition-colors ${
                     filter === "all" ? "bg-white text-brand-navy font-bold shadow-2xs" : "text-brand-muted hover:text-brand-navy"
                   }`}
                 >
@@ -323,7 +318,7 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
                 <button
                   type="button"
                   onClick={() => setFilter("passed")}
-                  className={`px-2.5 py-1 rounded transition-colors ${
+                  className={`cursor-pointer px-2.5 py-1 rounded transition-colors ${
                     filter === "passed" ? "bg-white text-brand-pass font-bold shadow-2xs" : "text-brand-muted hover:text-brand-navy"
                   }`}
                 >
@@ -332,7 +327,7 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
                 <button
                   type="button"
                   onClick={() => setFilter("failed")}
-                  className={`px-2.5 py-1 rounded transition-colors ${
+                  className={`cursor-pointer px-2.5 py-1 rounded transition-colors ${
                     filter === "failed" ? "bg-white text-brand-fail font-bold shadow-2xs" : "text-brand-muted hover:text-brand-navy"
                   }`}
                 >
@@ -412,7 +407,7 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
             </div>
 
             {/* Desktop / Tablet Table (hidden md:block) */}
-            <div className="hidden md:block border border-brand-border rounded-[6px] overflow-x-auto scrollbar-thin">
+            <div className="hidden md:block border border-brand-border rounded-[8px] overflow-x-auto scrollbar-thin">
               <table className="w-full text-left border-collapse text-xs min-w-[660px]">
                 <thead>
                   <tr className="bg-brand-bgLight border-b border-brand-border text-[10px] font-semibold text-brand-muted uppercase tracking-wider">
@@ -481,148 +476,70 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
               </table>
             </div>
 
-            {/* Geotagged Field Strip (Images optional/hidden on mobile) */}
-            <div className="mt-5 pt-4 border-t border-brand-border">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-[11px] font-bold text-brand-navy uppercase tracking-wider block">
-                  Timestamped Geotagged Field Audits
-                </span>
-                {/* Mobile Toggle Button */}
-                <button
-                  type="button"
-                  onClick={() => setShowMobilePhotos(!showMobilePhotos)}
-                  className="sm:hidden inline-flex items-center gap-1 text-[11px] font-bold text-brand-orange hover:underline cursor-pointer"
-                >
-                  <Camera className="w-3.5 h-3.5" />
-                  <span>{showMobilePhotos ? "Hide Photos" : "View 3 Photos"}</span>
-                </button>
+            {/* MODERN MULTI-PLATFORM ECOSYSTEM STRIP (Replacing dashboard images) */}
+            <div className="mt-5 pt-5 border-t border-brand-border">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3.5">
+                <div>
+                  <span className="text-[11px] font-bold text-brand-navy uppercase tracking-wider block">
+                    Real-Time Service Access • Web &amp; Mobile Ecosystem
+                  </span>
+                  <p className="text-xs text-brand-muted mt-0.5">
+                    Monitor site compliance, review laboratory certificates, and authorize contractor payments from anywhere.
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 self-start sm:self-auto">
+                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-brand-navy bg-brand-bgLight px-2.5 py-1 rounded-full border border-brand-border">
+                    <Laptop className="w-3.5 h-3.5 text-brand-orange" /> Web Portal
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-brand-navy bg-brand-bgLight px-2.5 py-1 rounded-full border border-brand-border">
+                    <Smartphone className="w-3.5 h-3.5 text-brand-orange" /> Mobile App (iOS &amp; Android)
+                  </span>
+                </div>
               </div>
 
-              {/* Photos Grid: always visible on sm+, toggled on mobile */}
-              <div className={`${showMobilePhotos ? "grid" : "hidden sm:grid"} grid-cols-1 sm:grid-cols-3 gap-3.5`}>                <div
-                  onClick={() =>
-                    setSelectedPhoto({
-                      title: "Slab & Pier Rebar Spacing Audit",
-                      geo: "Lat 22.5726° N, Long 88.3639° E • 14 Feb 10:15 IST",
-                      note: "Cover block spacing: 25mm verified • IS 456 Table 16 / CPWD",
-                      url: "https://lh3.googleusercontent.com/aida-public/AB6AXuB63ANUmNygn0NMc1NMCvhd-e4RDvGN0XrLXJiUhuZWv-wec3DAtuI0-37Je6ehVRMNRxoIure8Jqgk4BEOGkP1UzSngVne7lRYZ3_oMPRWWHshti-Uo0KsF3U1XM0G5wUYGO7qxTyj69Vxb1I-ClOKnnIUCSJ209tVhYXgwqMhJxuL-6lDsAmR7BCfQaeb6gTwnSPpgcSeGtq8B_9qiZ-rZ-JXc4w0e7-ap7ihegaL",
-                      status: "pass",
-                    })
-                  }
-                  className="cursor-pointer border border-brand-border rounded-[6px] overflow-hidden bg-brand-bgLight hover:border-brand-navy transition-all group"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    alt="Rebar spacing"
-                    className="w-full h-36 sm:h-28 object-cover group-hover:scale-103 transition-transform"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB63ANUmNygn0NMc1NMCvhd-e4RDvGN0XrLXJiUhuZWv-wec3DAtuI0-37Je6ehVRMNRxoIure8Jqgk4BEOGkP1UzSngVne7lRYZ3_oMPRWWHshti-Uo0KsF3U1XM0G5wUYGO7qxTyj69Vxb1I-ClOKnnIUCSJ209tVhYXgwqMhJxuL-6lDsAmR7BCfQaeb6gTwnSPpgcSeGtq8B_9qiZ-rZ-JXc4w0e7-ap7ihegaL"
-                  />
-                  <div className="p-2.5 text-[11px] space-y-0.5">
-                    <div className="font-bold text-brand-navy flex items-center justify-between">
-                      <span>Rebar Spacing</span>
-                      <ZoomIn className="w-3.5 h-3.5 text-brand-muted" />
-                    </div>
-                    <div className="text-brand-pass font-semibold text-[10px]">25mm cover verified</div>
+              {/* 3 Modern Feature Capability Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                <div className="p-3.5 rounded-[10px] border border-brand-border/80 bg-brand-bgLight/40 hover:bg-white hover:border-brand-navy/30 transition-all space-y-1.5 shadow-2xs">
+                  <div className="w-8 h-8 rounded-[6px] bg-white border border-brand-border flex items-center justify-center text-brand-orange shadow-xs">
+                    <Laptop className="w-4 h-4" />
                   </div>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-brand-navy">
+                    Executive Web Dashboard
+                  </h4>
+                  <p className="text-[11.5px] text-brand-muted leading-relaxed">
+                    Full engineering registry with tamper-evident PDF dossiers, historical slump curves, and running bill payment gating.
+                  </p>
                 </div>
 
-                <div
-                  onClick={() =>
-                    setSelectedPhoto({
-                      title: "Concrete Slump Workability",
-                      geo: "Lat 22.5726° N, Long 88.3639° E • 14 Feb 11:30 IST",
-                      note: "Measured: 105mm (True Slump Passed under IS 1199)",
-                      url: "https://lh3.googleusercontent.com/aida-public/AB6AXuCRHq2BTTMz5x_5L8RwfyuK4kuhAL8mLOn0ouRcY6hVZGsDbNqd-lp-wPnJCgmlaZ7UQh_x1KreVcYtXu69XKd9lKKtEYSHMwPYOBfhOXO0aUkPsZS6EA2ZmaxeCwvGyqM820e20b48liTKMmc6JsE9cKdKb6NoOIjglIXexe5_R_klp8AUb7L49jR6M9z3r0q_wljY1XQb8GK1sXUG-f4x6HXG2YMiAVTxqBBojMYg",
-                      status: "pass",
-                    })
-                  }
-                  className="cursor-pointer border border-brand-border rounded-[6px] overflow-hidden bg-brand-bgLight hover:border-brand-navy transition-all group"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    alt="Slump test"
-                    className="w-full h-36 sm:h-28 object-cover group-hover:scale-103 transition-transform"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRHq2BTTMz5x_5L8RwfyuK4kuhAL8mLOn0ouRcY6hVZGsDbNqd-lp-wPnJCgmlaZ7UQh_x1KreVcYtXu69XKd9lKKtEYSHMwPYOBfhOXO0aUkPsZS6EA2ZmaxeCwvGyqM820e20b48liTKMmc6JsE9cKdKb6NoOIjglIXexe5_R_klp8AUb7L49jR6M9z3r0q_wljY1XQb8GK1sXUG-f4x6HXG2YMiAVTxqBBojMYg"
-                  />
-                  <div className="p-2.5 text-[11px] space-y-0.5">
-                    <div className="font-bold text-brand-navy flex items-center justify-between">
-                      <span>Slump Test</span>
-                      <ZoomIn className="w-3.5 h-3.5 text-brand-muted" />
-                    </div>
-                    <div className="text-brand-pass font-semibold text-[10px]">105mm Passed</div>
+                <div className="p-3.5 rounded-[10px] border border-brand-border/80 bg-brand-bgLight/40 hover:bg-white hover:border-brand-navy/30 transition-all space-y-1.5 shadow-2xs">
+                  <div className="w-8 h-8 rounded-[6px] bg-white border border-brand-border flex items-center justify-center text-brand-orange shadow-xs">
+                    <Smartphone className="w-4 h-4" />
                   </div>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-brand-navy">
+                    Mobile Companion App
+                  </h4>
+                  <p className="text-[11.5px] text-brand-muted leading-relaxed">
+                    Native iOS &amp; Android app for owners, site engineers, and government officials to review inspections on the move.
+                  </p>
                 </div>
 
-                <div
-                  onClick={() =>
-                    setSelectedPhoto({
-                      title: "Defective Lot Consignment",
-                      geo: "Lat 22.5726° N, Long 88.3639° E • 13 Feb 16:20 IST",
-                      note: "Flagged: Unsound, non-compliant with standard thresholds",
-                      url: "https://lh3.googleusercontent.com/aida-public/AB6AXuDMWeaDsKB4T2whZcovVQUGfJ-jVA9IWNKpE7SvTc6hmv4geoA2gMLa51WqFePEqCl2gN5zjLoDCJf1s3r0FFw0_4Gevz7JvhHOcWhcy2iQxda0p353GWOZdn4bDppsGSF-zgirkJx0hij2QvbiRgrOFkHP0iQRtgnFj7P94SLwXNHrNpK96KtsBYkJH13-YKSOl83ecFVW2bqZaw99nlZnYaOWbuJwlwXvcGtzNAos",
-                      status: "fail",
-                    })
-                  }
-                  className="cursor-pointer border border-brand-fail/40 rounded-[6px] overflow-hidden bg-brand-failBg/20 hover:border-brand-fail transition-all group"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    alt="Rejected material lot"
-                    className="w-full h-36 sm:h-28 object-cover group-hover:scale-103 transition-transform"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMWeaDsKB4T2whZcovVQUGfJ-jVA9IWNKpE7SvTc6hmv4geoA2gMLa51WqFePEqCl2gN5zjLoDCJf1s3r0FFw0_4Gevz7JvhHOcWhcy2iQxda0p353GWOZdn4bDppsGSF-zgirkJx0hij2QvbiRgrOFkHP0iQRtgnFj7P94SLwXNHrNpK96KtsBYkJH13-YKSOl83ecFVW2bqZaw99nlZnYaOWbuJwlwXvcGtzNAos"
-                  />
-                  <div className="p-2.5 text-[11px] space-y-0.5">
-                    <div className="font-bold text-brand-fail flex items-center justify-between">
-                      <span>Rejected Lot</span>
-                      <ZoomIn className="w-3.5 h-3.5 text-brand-fail" />
-                    </div>
-                    <div className="text-brand-fail font-semibold text-[10px]">Flagged: Defective</div>
+                <div className="p-3.5 rounded-[10px] border border-brand-border/80 bg-brand-bgLight/40 hover:bg-white hover:border-brand-navy/30 transition-all space-y-1.5 shadow-2xs">
+                  <div className="w-8 h-8 rounded-[6px] bg-white border border-brand-border flex items-center justify-center text-brand-orange shadow-xs">
+                    <BellRing className="w-4 h-4" />
                   </div>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-brand-navy">
+                    Instant Non-Conformance Alerts
+                  </h4>
+                  <p className="text-[11.5px] text-brand-muted leading-relaxed">
+                    Real-time push notifications the moment a material consignment fails IS / CPWD specifications, preventing concrete pouring.
+                  </p>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
-
-      {/* Geotagged Photo Modal Lightbox with Glassmorphism backdrop */}
-      {selectedPhoto && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand-navyDark/70 backdrop-blur-md p-4">
-          <div className="bg-white/95 backdrop-blur-lg border border-white/60 rounded-[12px] max-w-lg w-full overflow-hidden shadow-2xl">
-            <div className="px-4 py-3 bg-brand-navy text-white flex items-center justify-between">
-              <span className="font-bold text-xs sm:text-sm">{selectedPhoto.title}</span>
-              <button
-                type="button"
-                onClick={() => setSelectedPhoto(null)}
-                className="text-white hover:text-brand-orange transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={selectedPhoto.url} alt={selectedPhoto.title} className="w-full h-60 object-cover" />
-            <div className="p-4 space-y-2">
-              <div className="text-xs font-mono text-brand-muted">{selectedPhoto.geo}</div>
-              <div
-                className={`text-xs font-semibold ${
-                  selectedPhoto.status === "fail" ? "text-brand-fail" : "text-brand-pass"
-                }`}
-              >
-                {selectedPhoto.note}
-              </div>
-              <div className="pt-2 border-t border-brand-border flex justify-end">
-                <button
-                  type="button"
-                  onClick={() => setSelectedPhoto(null)}
-                  className="px-3 py-1.5 text-xs font-semibold bg-brand-navy text-white rounded-[4px] hover:bg-brand-navyDark transition-colors"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

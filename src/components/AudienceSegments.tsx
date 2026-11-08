@@ -69,12 +69,12 @@ export default function AudienceSegments() {
             return (
               <div
                 key={seg.code}
-                className={`p-5 rounded-[10px] border transition-all flex flex-col justify-between shadow-sm ${
+                className={`p-5 rounded-[10px] border transition-all flex flex-col justify-between backdrop-blur-sm shadow-xs ${
                   seg.isGovt
                     ? "border-brand-navy/40 bg-brand-navy/5 shadow-md shadow-brand-navy/10"
                     : seg.isPopular
-                    ? "border-brand-orange/40 bg-brand-orange/5 ring-1 ring-brand-orange/20 shadow-md shadow-brand-orange/10"
-                    : "border-brand-border bg-white hover:border-brand-navy/30 hover:shadow-md"
+                    ? "border-brand-orange/40 bg-white/90 ring-1 ring-brand-orange/20 shadow-md shadow-brand-orange/10"
+                    : "border-brand-border/80 bg-white/80 hover:bg-white hover:border-brand-navy/30 hover:shadow-md"
                 }`}
               >
                 <div>

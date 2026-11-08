@@ -50,7 +50,7 @@ export default function InspectionReality() {
               return (
                 <div
                   key={item.number}
-                  className="p-5 sm:p-6 rounded-[10px] border border-brand-border bg-white hover:border-brand-navy/30 hover:shadow-md transition-all flex flex-col sm:flex-row items-start gap-4 shadow-sm"
+                  className="p-5 sm:p-6 rounded-[10px] border border-brand-border/80 bg-white/80 backdrop-blur-sm hover:bg-white hover:border-brand-navy/30 hover:shadow-md transition-all flex flex-col sm:flex-row items-start gap-4 shadow-xs"
                 >
                   <div className="flex items-center gap-3 sm:flex-col sm:items-start shrink-0">
                     <span className="font-mono text-xs font-bold text-brand-orange">

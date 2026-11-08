@@ -49,7 +49,7 @@ export default function StandardsMatrix() {
         </div>
 
         {/* Compact Table */}
-        <div className="border border-brand-border rounded-[8px] bg-white overflow-hidden shadow-xs">
+        <div className="border border-brand-border/80 rounded-[12px] bg-white/90 backdrop-blur-md overflow-hidden shadow-sm">
           <div className="overflow-x-auto scrollbar-thin">
             <table className="w-full text-left border-collapse text-xs min-w-[680px]">
               <thead>

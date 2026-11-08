@@ -54,7 +54,7 @@ export default function ActionBanner({ onRequestAudit }: ActionBannerProps) {
             </div>
           </div>
 
-          <div className="lg:col-span-4 bg-brand-navyDark border border-brand-borderDark p-5 sm:p-6 rounded-[8px] space-y-2.5">
+          <div className="lg:col-span-4 bg-white/[0.06] backdrop-blur-md border border-white/12 p-5 sm:p-6 rounded-[12px] space-y-2.5 shadow-xl shadow-black/20">
             <div className="text-[10px] font-mono font-bold text-slate-400 uppercase">
               Civil QA Audit Division
             </div>

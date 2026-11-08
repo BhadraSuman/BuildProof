@@ -30,8 +30,8 @@ export default function AuditRequestModal({ isOpen, onClose }: AuditRequestModal
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/65 backdrop-blur-xs p-3 sm:p-4 overflow-y-auto">
-      <div className="bg-white rounded-[8px] max-w-lg w-full overflow-hidden shadow-2xl border border-brand-border my-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand-navyDark/65 backdrop-blur-md p-3 sm:p-4 overflow-y-auto">
+      <div className="bg-white/95 backdrop-blur-xl rounded-[12px] max-w-lg w-full overflow-hidden shadow-2xl border border-white/60 my-auto">
         {/* Header */}
         <div className="px-5 sm:px-6 py-4 bg-brand-navy text-white flex items-center justify-between">
           <div className="flex items-center gap-2.5">

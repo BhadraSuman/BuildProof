@@ -136,7 +136,7 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
 
           <div className="flex flex-wrap items-center gap-2.5">
             {/* Project Switcher */}
-            <div className="inline-flex rounded-[6px] border border-brand-border bg-brand-bgLight p-1 text-xs font-semibold">
+            <div className="inline-flex rounded-[8px] border border-brand-border/80 bg-brand-bgLight/80 backdrop-blur-sm p-1 text-xs font-semibold">
               <button
                 type="button"
                 onClick={() => {
@@ -481,10 +481,10 @@ export default function ClientPortal({ onOpenDocModal }: ClientPortalProps) {
         </div>
       </div>
 
-      {/* Geotagged Photo Modal Lightbox */}
+      {/* Geotagged Photo Modal Lightbox with Glassmorphism backdrop */}
       {selectedPhoto && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-xs p-4">
-          <div className="bg-white rounded-[8px] max-w-lg w-full overflow-hidden shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand-navyDark/70 backdrop-blur-md p-4">
+          <div className="bg-white/95 backdrop-blur-lg border border-white/60 rounded-[12px] max-w-lg w-full overflow-hidden shadow-2xl">
             <div className="px-4 py-3 bg-brand-navy text-white flex items-center justify-between">
               <span className="font-bold text-xs sm:text-sm">{selectedPhoto.title}</span>
               <button

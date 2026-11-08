@@ -20,7 +20,7 @@ export default function Hero({ onRequestAudit }: HeroProps) {
           {/* Left Column */}
           <div className="lg:col-span-6 space-y-7">
             {/* Badge */}
-            <div className="inline-flex flex-wrap items-center gap-2 px-3 py-1.5 bg-white border border-brand-border rounded-full text-[11px] sm:text-xs font-semibold text-brand-navy shadow-sm">
+            <div className="inline-flex flex-wrap items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-md border border-brand-border/80 rounded-full text-[11px] sm:text-xs font-semibold text-brand-navy shadow-xs">
               <span className="w-2 h-2 bg-brand-orange rounded-full animate-pulse" />
               <span>INDEPENDENT CIVIL QUALITY AUDITING</span>
               <span className="text-brand-border">•</span>
@@ -50,7 +50,7 @@ export default function Hero({ onRequestAudit }: HeroProps) {
                 Request a Site Audit
               </button>
               <a
-                className="border border-brand-border bg-white hover:bg-brand-bgLight text-brand-navy text-sm sm:text-[15px] font-semibold px-6 py-3.5 rounded-[8px] transition-colors text-center shadow-sm"
+                className="border border-brand-border/80 bg-white/70 backdrop-blur-sm hover:bg-white text-brand-navy text-sm sm:text-[15px] font-semibold px-6 py-3.5 rounded-[8px] transition-all text-center shadow-xs"
                 href="#dashboard"
               >
                 View Sample Audit
@@ -89,9 +89,9 @@ export default function Hero({ onRequestAudit }: HeroProps) {
               {/* Dark overlay gradient at bottom */}
               <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/50 to-transparent" />
 
-              {/* Floating Technical Badge */}
-              <div className="absolute bottom-5 left-5 right-5 xl:right-auto xl:w-[400px]">
-                <div className="bg-white/95 backdrop-blur-md border border-white/60 rounded-[10px] p-4 shadow-2xl">
+              {/* Floating Technical Badge with refined Glassmorphism */}
+              <div className="absolute bottom-5 left-5 right-5 xl:right-auto xl:w-[410px]">
+                <div className="bg-white/85 backdrop-blur-xl border border-white/70 rounded-[12px] p-4.5 shadow-2xl shadow-brand-navy/20">
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <span className="text-[10px] sm:text-[11px] font-bold text-brand-muted uppercase tracking-wider">
                       Field &amp; Lab Verification

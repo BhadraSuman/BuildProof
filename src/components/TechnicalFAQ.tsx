@@ -40,7 +40,7 @@ export default function TechnicalFAQ() {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto divide-y divide-brand-border border border-brand-border rounded-[10px] overflow-hidden bg-white shadow-sm">
+        <div className="max-w-3xl mx-auto divide-y divide-brand-border/70 border border-brand-border/80 rounded-[12px] overflow-hidden bg-white/85 backdrop-blur-md shadow-sm">
           {faqs.map((faq, idx) => (
             <details key={idx} className="group px-5 py-4 sm:py-5 hover:bg-brand-bgLight/50 transition-colors">
               <summary className="flex items-center justify-between cursor-pointer list-none text-sm sm:text-[14.5px] font-semibold text-brand-navy gap-4 select-none">
